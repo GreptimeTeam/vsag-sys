@@ -18,7 +18,9 @@
 #include <cstddef>
 #include <cstdint>
 
+#ifdef __cplusplus
 extern "C" {
+#endif
 
 #define VSAG_WRAPPER_MAX_ERROR_MESSAGE_LENGTH 256
 
@@ -61,4 +63,6 @@ void free_i64_vector(int64_t *vector);
 void free_f32_vector(float *vector);
 } // extern "C"
 
+#ifdef __cplusplus
 #endif // WRAPPER_H
+#endif

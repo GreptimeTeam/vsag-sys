@@ -15,6 +15,7 @@
 fn main() {
     println!("cargo:rerun-if-changed=include/wrapper.h");
     println!("cargo:rerun-if-changed=src/wrapper.cpp");
+    println!("cargo:rerun-if-changed=build.rs");
 
     let dst = cmake::Config::new("")
         .build_target("vsag_wrapper")
@@ -23,11 +24,11 @@ fn main() {
         .env("TARGET", "")
         .build();
 
+    println!("cargo:rustc-link-lib=static=vsag_wrapper");
+    println!("cargo:rustc-link-lib=dylib=vsag");
     println!("cargo:rustc-link-search=native={}/build", dst.display());
     println!(
         "cargo:rustc-link-search=native={}/build/_deps/vsag-build/src",
         dst.display()
     );
-    println!("cargo:rustc-link-lib=dylib=vsag");
-    println!("cargo:rustc-link-lib=static=vsag_wrapper");
 }

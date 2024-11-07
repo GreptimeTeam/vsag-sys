@@ -28,6 +28,7 @@ jobs:
       - name: fmt
         run: |
           make fmt
+          git diff --exit-code
       - name: test
         run: |
           make test

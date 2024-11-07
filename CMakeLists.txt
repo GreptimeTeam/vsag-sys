@@ -8,7 +8,7 @@ include(FetchContent)
 FetchContent_Declare(
   vsag
   GIT_REPOSITORY https://github.com/alipay/vsag
-  GIT_TAG v0.11.6
+  GIT_TAG v0.11.7
 )
 FetchContent_MakeAvailable(vsag)
 
